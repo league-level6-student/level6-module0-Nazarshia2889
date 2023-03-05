@@ -11,6 +11,25 @@ public class JeopardyRunner {
         JeopardyApi jeopardyApi = new JeopardyApi();
 
         //1. Create a score variable
+        int score = 0;
+        
+        for(int i = 100; i <= 1000; i += 100) {
+        	if(i == 700 || i == 900) {
+        		continue;
+        	}
+        	
+        	Clue clue = jeopardyApi.getClue(i);
+        	String question = clue.getQuestion();
+        	String answer = clue.getAnswer();
+        	String title = clue.getCategory().getTitle();
+        	
+        	String input = JOptionPane.showInputDialog(null, question);
+        	if(input.equalsIgnoreCase(answer)) {
+        		score += 1;
+        		JOptionPane.showMessageDialog(null, "You are correct, your score is: " + score);
+        	}
+        	JOptionPane.showMessageDialog(null, "Correct answer: " + answer);
+        }
 
         //2. Add a for loop where:
         //i starts at 100,
