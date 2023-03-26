@@ -85,7 +85,7 @@ public class NewsApi {
 
         //Get the content of the article
         String articleContent = article.getContent();
-
+        
         //Get the URL of the article
         String articleUrl = article.getUrl();
 
